@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {%load static%}
+  <link rel="stylesheet" href="{%static 'timescale/css/style1.css' %}">
+
+  <!-- jQuery CDN Link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>User Login</title>
+</head>
+
+<body>
+  {% for message in messages  %}            
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show center" role="alert">
+              <strong>Message : </strong> {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+        {% endfor %}    
+  <div class="container">
+    <div class="form">
+      <div class="btn">
+        <button class="signUpBtn">SignUp</button>
+        <button class="loginBtn">User Login</button>
+      </div>
+
+      <!------ SignUp Form -------- -->
+      <form class="signUp" action="/SingUp/" method="post">
+        <div class="formGroup">
+          <input type="text" id="fname" placeholder="Enter your first name" name="fname" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="text" id="lname" placeholder="Enter your last name" name="lname" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="text" id="username" placeholder="Enter your Username" name="username" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="email" id="email" placeholder="Email ID" name="email" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="password" id="password" placeholder="Password" name="password" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" required
+            autocomplete="off">
+        </div>
+        <div class="checkBox">
+          <input type="checkbox" name="checkbox" id="checkbox">
+          <span class="text">I agree with term & conditions</span>
+        </div>
+        {% csrf_token %}
+        <div class="formGroup">
+          <button type="submit" class="btn2">Register</button>
+        </div>
+      </form>
+
+      <!------ Login Form -------- -->
+      <form class="login" action="/userLogin/" method="post">
+        <div class="formGroup">
+          <input type="text" id="loginusername" placeholder="Enter your Username" name="loginusername" required autocomplete="off">
+        </div>
+        <div class="formGroup">
+          <input type="password" id="loginpassword" placeholder="Password" name="loginpassword" required autocomplete="off">
+        </div>
+        <div class="checkBox">
+          <input type="checkbox" name="checkbox" id="checkbox">
+          <span class="text">Keep me signed in on this device</span>
+        </div>
+        {% csrf_token %}
+        <div class="formGroup">
+          <button type="submit" class="btn2">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="{%static  'timescale/js/jQuery.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'timescale/navbaradmin.html' %}
+{% block content%}
+<form class="container-fluid pt-4 px-4" action="/allocateshit/" method="post">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h4 class="text-primary"></i>Allocate Shit and Department</h4>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" name ="floatingSelect"
+                    aria-label="Floating label select example">
+                    <option selected>Choose Employee Name</option>
+                            
+                            {% for instance in getuser %}
+                            <option>{{ instance }}</option>
+                            {% endfor %}
+                            
+                        </select>
+                    </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="ShiftSelect" name ="ShiftSelect"
+                    aria-label="Floating label select example">
+                    <option selected>Choose Shift</option>
+                            <option>Shift 1 - (7am - 2pm)</option>
+                            <option>Shift 2 - (9am - 5pm)</option>
+                            <option>Shift 3 - (2am - 11pm)</option>
+                            <option>Night Shift</option>
+                        </select>
+                    </div>
+                    <label>Choose a Department:
+                        <input list="Department" name="Department" type="text"></label>
+                        <datalist  id="Department">
+                          <option value="Computer Science">
+                          <option value="Information Technology">
+                          <option value="Electronics and Telecommunication">
+                          <option value="Electronics and Computer Science">
+                          <option value="Mechanical Engineering">
+                          <option value="Instrumantal Engineering">
+                        </datalist>
+                </div>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Allocate</button>
+        </div>
+    
+</form>
+{% endblock %}

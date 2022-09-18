@@ -1,0 +1,51 @@
+{% extends 'timescale/navbaradmin.html' %}
+{% block content%}
+
+
+<!-- Chart Start -->
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-6">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Add Employee Details</h6>
+                <form action="/UseradminRegister/" method="post">
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Employee's First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" aria-describedby="NameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Employee's Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" aria-describedby="NameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Assign a Username</label>
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="NameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="NameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Assign a Password</label>
+                        <input type="password" class="form-control" id="password" name="password" aria-describedby="NameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleName" class="form">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" aria-describedby="NameHelp">
+                    </div>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chart End -->
+
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    {% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'timescale/navbaradmin.html' %}
+{% block content%}
+
+<!-- Content Start -->
+<div class="content">
+    <!-- Blank Start -->
+    <form class="container-fluid pt-4 px-4" action="/logout/" method="post">
+        <div class="row vh-100 bg-light rounded align-items-center justify-content-center mx-0">
+            <div class="col-md-6 text-center">
+                <h1>Logout from here</h1>
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </div>
+        </div>
+    </form>
+    <!-- Blank End -->
+    {% endblock %}

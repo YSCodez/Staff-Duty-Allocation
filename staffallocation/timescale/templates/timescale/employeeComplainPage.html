@@ -1,0 +1,36 @@
+{% extends 'timescale/navbaremp.html' %}
+{% block content%}
+<!-- Chart Start -->
+
+<div class="col-sm-12 col-xl-6">
+    <form class="bg-light rounded h-100 p-4" action="/registerFeed/" method="post" >
+        <h6 class="mb-4">Submit Today's Report</h6>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="fname" name ="fname" placeholder="First name">
+            <label for="floatingInput">Enter your name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="email" name ="email" placeholder="name@example.com">
+            <label for="floatingInput">Enter your email</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="feed"
+                name="feed" style="height: 150px;"></textarea>
+            <label for="floatingTextarea">Your Input</label>
+        </div>
+</div>
+
+<div class="col-sm-12 col-xl-6">
+    <div class="bg-light rounded h-100 p-4">
+        <div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Submit your report</button>
+        </div>
+    </div>
+</form>
+</div>
+
+<!-- Chart End -->
+<!-- Content End -->
+
+{% endblock %}
